@@ -1,4 +1,4 @@
-# CharityDirect
+# CharityDAO
 
 [CharityDAO](https://github.com/selcukemiravci/CharityDAO) is an innovative, user-friendly, single-page web application that fosters community-driven charitable giving. By leveraging cutting-edge technologies such as Next.js, React, and blockchain solutions including XRPL and WorldID, this project aims to create a secure and transparent voting platform where global users can democratically decide which country should receive the charity funds.
 
