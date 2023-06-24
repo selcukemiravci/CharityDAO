@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>XRP Ledger Transaction</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>XRP Ledger Transaction</h1>
+        <div class="input-section">
+            <input type="text" id="destination" placeholder="Destination Address" required>
+            <input type="number" id="amount" placeholder="Amount in XRP" required>
+            <button id="submit">Submit</button>
+        </div>
+        <div class="result-section">
+            <p id="status"></p>
+        </div>
+    </div>
+    <script src="https://unpkg.com/xrpl@2.0.0/build/xrpl-latest-min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
