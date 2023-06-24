@@ -9,7 +9,7 @@
 }
 
 .App-content {
-  background-color: #353535cf; /* or any color you prefer */
+  background-color: #292929d4; /* or any color you prefer */
   margin: 20px; /* adjust this to control the size of the gradient "border" */
   padding: 20px; /* adjust this to control the inner padding */
   border-radius: 10px; /* Optional: Add this if you want rounded corners */
