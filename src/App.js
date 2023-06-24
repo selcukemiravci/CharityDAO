@@ -5,7 +5,7 @@ import Footer from './Footer';
 import VoteOption from './VoteOption';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ProgressBar } from 'react-bootstrap';
-import { BiCoinStack } from 'react-icons/bi';
+import Button from '@mui/material/Button';
 import './Header.css';
 
 const countries = ['USA', 'Canada', 'Brazil', 'Turkey', 'Iceland', 'Egypt'];
@@ -57,7 +57,7 @@ const App = () => {
             <ProgressBar striped variant="success" now={percentage} key={1} />
             <ProgressBar striped variant="danger" now={spentPercentage} key={2} />
           </ProgressBar>
-          <button onClick={handleConfirm}>Confirm and Send Funds</button>
+          <Button  onClick={handleConfirm}  style={{ backgroundColor: '#333', color: 'white', marginTop: '10px'}} >Confirm Votes & Donate Funds </Button>
         </div>
       </div>
       <div className="countries">
