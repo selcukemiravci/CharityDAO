@@ -33,7 +33,7 @@ const VoteOption = ({ country, handleVote }) => {
 
   const getButtonColor = (type) => {
     const totalVotes = votes.yes + votes.no;
-    if (totalVotes === 0) return 'grey';
+    if (totalVotes === 0) return '#333';
     const percentage = votes[type] / totalVotes;
     if (percentage > 0.5) return 'green';
     if (percentage < 0.5) return 'red';

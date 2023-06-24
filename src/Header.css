@@ -1,13 +1,36 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #333;
-    color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #333;
+  color: #fff;
+}
+
+.header button {
+  margin-right: 20px;
+}
+.logo {
+  height: 50px;
+  width: 50px;
+  margin-right: 10px;
+}
+.header-title {
+  display: flex;
+  align-items: center;
+}
+
+/* Media Queries for responsiveness */
+
+@media ((max-width: 900px) {
+  .header {
+    flex-direction: column;
+    text-align: center;
   }
-  
   .header button {
-    margin-right: 20px;
+    margin: 20px 0;
   }
-  
+  .header-title {
+    flex-direction: column;
+  }
+}

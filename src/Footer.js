@@ -5,9 +5,7 @@ import './Footer.css';
 const Footer = () => {
   return (
     <footer className="footer">
-      <a href="https://github.com/selcukemiravci/CharityDAO" target="_blank" rel="noopener noreferrer">
-        <FaGithub size={30}/>
-      </a>
+      <h4>Built with 🪄</h4>
     </footer>
   );
 };

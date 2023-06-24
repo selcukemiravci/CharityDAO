@@ -1,21 +1,70 @@
 .App {
   text-align: center;
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  margin: 20px auto; 
+  padding: 20px; 
+  background: linear-gradient(270deg, #b3ffab, #12fff7);
+  background-size: 200% 200%;
+  animation: Gradient 5s ease infinite;
 }
 
-.prize-pool {
-  background-color: #ededed;
-  padding: 20px;
-  border-radius: 5px;
-  margin-bottom: 20px;
+.App-content {
+  background-color: #353535cf; /* or any color you prefer */
+  margin: 20px; /* adjust this to control the size of the gradient "border" */
+  padding: 20px; /* adjust this to control the inner padding */
+  border-radius: 10px; /* Optional: Add this if you want rounded corners */
+}
+
+@keyframes Gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.info-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;  
+  background: 
+    linear-gradient(45deg, #92baac 25%, transparent 25%) 0 0,
+    linear-gradient(45deg, transparent 75%, #92baac 75%) 0 0,
+    linear-gradient(-45deg, #92baac 25%, transparent 25%),
+    linear-gradient(-45deg, transparent 75%, #92baac 75%);
+  background-size: 40px 40px;
+  background-color: #e0e0e041;
 }
 
 .countries {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
+  margin-top: 20px;
+  color: rgb(255, 245, 245);
+}
+
+.prize-pool, .about {
+  margin-top: 30px;
+  margin-bottom: 30pxV;
+  background-color: #ededed;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.about, .prize-pool {
+  width: 48%;
+  padding: 20px;
+  background-color: #ededed;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .country-container {
@@ -31,7 +80,7 @@
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   width: calc((100% / 3) - 20px);
-  position: relative;  /* Added position relative here */
+  position: relative;
 }
 
 .country-container:hover {
@@ -53,31 +102,22 @@ button:hover {
   background-color: #45a049;
 }
 
-/* New CSS classes added below */
+/* Media Queries for responsiveness */
 
-.buttons-container {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+@media (max-width: 900px) {
+  .info-section {
+    flex-direction: column;
+  }
+  .about, .prize-pool {
+    width: 100%;
+  }
+  .country-container {
+    width: calc((100% / 2) - 20px);
+  }
 }
 
-.vote-button {
-  margin: 5px;
-  padding: 10px 24px;
-  border: none;
-  color: white;
-  text-align: center;
-  display: inline-block;
-  font-size: 16px;
-  transition-duration: 0.4s;
-  cursor: pointer;
-  border-radius: 12px;
-  width: 80%;  /* You can adjust the width as needed */
-}
-
-.vote-button:hover {
-  opacity: 0.8;
+@media (max-width: 600px) {
+  .country-container {
+    width: 100%;
+  }
 }
