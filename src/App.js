@@ -12,11 +12,28 @@ const countries = ['USA', 'Canada', 'Brazil', 'Turkey', 'Iceland', 'Egypt'];
 
 const App = () => {
   const [capital, setCapital] = useState(1000);
+  const [yesVotes, setYesVotes] = useState(0);
+  const [progress, setProgress] = useState(0);
 
-  const handleVote = (country, vote) => {
+  const handleVote = (country, vote, oldVote) => {
     if (vote === 'yes') {
-      setCapital(capital - 5);  // Deduct $5 from capital for every 'yes' vote
+      if (oldVote === 'yes') {
+        setCapital(capital + 5); // Refund $5 to capital for every 'yes' vote
+        setYesVotes(yesVotes - 1);
+        setProgress(progress - 3); // decrease progress
+      } else {
+        setCapital(capital - 5); // Deduct $5 from capital for every 'yes' vote
+        setYesVotes(yesVotes + 1);
+        setProgress(progress + 3); // increase progress
+      }
     }
+  };
+
+  const handleConfirm = () => {
+    // Do something with yesVotes
+    console.log(`Sending funds for ${yesVotes} yes votes.`);
+    // Reset votes
+    setYesVotes(0);
   };
 
   const percentage = Math.round((capital / 1000) * 100);
@@ -40,6 +57,7 @@ const App = () => {
             <ProgressBar striped variant="success" now={percentage} key={1} />
             <ProgressBar striped variant="danger" now={spentPercentage} key={2} />
           </ProgressBar>
+          <button onClick={handleConfirm}>Confirm and Send Funds</button>
         </div>
       </div>
       <div className="countries">
