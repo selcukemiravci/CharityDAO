@@ -38,9 +38,11 @@ const App = () => {
       <div className="prize-pool">
         <h2>Prize Pool: ${prizePool}</h2>
       </div>
-      {countries.map((country) => (
-        <VoteOption key={country} country={country} handleVote={handleVote} />
-      ))}
+      <div className="countries">
+        {countries.map((country) => (
+          <VoteOption key={country} country={country} handleVote={handleVote} />
+        ))}
+      </div>
     </div>
   );
 };

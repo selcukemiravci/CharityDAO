@@ -11,7 +11,11 @@
   border-radius: 5px;
   margin-bottom: 20px;
 }
-
+.countries {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
 .country-container {
   display: flex;
   flex-direction: column;
@@ -24,6 +28,8 @@
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   cursor: pointer;
   transition: all 0.2s ease-in-out;
+  width: calc((100% / 3) - 20px);
+
 }
 
 .country-container:hover {
