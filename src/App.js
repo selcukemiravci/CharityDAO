@@ -8,7 +8,7 @@ import { ProgressBar } from 'react-bootstrap';
 import Button from '@mui/material/Button';
 import './Header.css';
 
-const countries = ['USA', 'Canada', 'Brazil', 'Turkey', 'Iceland', 'Egypt'];
+const countries = ['Singapore', 'Canada', 'Brazil', 'France', 'Australia','Iceland', 'Japan','USA'];
 
 const App = () => {
   const [capital, setCapital] = useState(1000);

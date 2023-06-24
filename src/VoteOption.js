@@ -7,7 +7,6 @@ const VoteOption = ({ country, handleVote }) => {
   const [votes, setVotes] = useState({ yes: Math.floor(Math.random() * 100) + 1, no: Math.floor(Math.random() * 100) + 1 });
   const [countryImage, setCountryImage] = useState(null);
   const [selectedVote, setSelectedVote] = useState(null);
-  const [warning, setWarning] = useState('');
   const [hasVoted, setHasVoted] = useState(false);
 
   useEffect(() => {
@@ -75,7 +74,6 @@ const VoteOption = ({ country, handleVote }) => {
         <ProgressBar striped variant="success" now={yesPercentage} key={1} />
         <ProgressBar striped variant="danger" now={noPercentage} key={2} />
       </ProgressBar>
-      {warning && <p>{warning}</p>}
     </div>
   );
 };
