@@ -11,7 +11,29 @@ At the end of the voting period, the funds are swiftly and cost-effectively tran
 The project takes advantage of WorldID for user authentication, thus confirming the legitimacy of each vote and ensuring that only genuine individuals can participate in the voting process.
 
 [CharityDAO](https://github.com/selcukemiravci/CharityDAO) embodies the principles of transparency, engagement, and efficiency in the realm of charitable giving. Its objective is to dispel any concerns of manipulation or corruption, while simultaneously raising awareness and involvement in global causes.
-# Getting Started with Create React App
+
+
+# Project Overview
+Charity DAO Voting App is a blockchain-based web application that democratizes the distribution of charitable funds. Users across the globe can vote for a country in need to receive charity funding, with the assurance of transparency, efficiency, and security.
+
+# Key Features
+- **Country Selection:** Choose from different countries, each represented by a nouns-dao style NFT, to receive charity funding.
+- **Voting Mechanism:** One vote per user policy with prevention of multiple votes from the same user.
+- **XRPL Integration:** After voting, the app uses XRPL to transfer charity funds to the winning country.
+- **WorldID Login:** Blockchain-based WorldID system for user authentication.
+- **Real-time Vote Count:** Live updates of vote count for informed decision-making
+
+# Tools and Technologies
+The following technologies and tools were used to build our project:
+- ReactJS (JavaScript)
+- Node.js
+- CSS
+- HTML
+- XRP Ledger
+- WorldID Login API
+- NOUNS DAO - NFT Playground API
+
+# Installation
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -81,3 +103,15 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Authors
+This project was made by Ripple interns. List of authors and their GitHub accounts:
+- [Emir Avci](https://github.com/selcukemiravci)
+- [Joseph Chen](https://github.com/Josephtw0305)
+- [Derrick Nguyen](https://github.com/derr-stack/)
+
+# Acknowledgments
+We thank our team and everyone who supported us during the ETHWaterloo hackathon. We also extend our gratitude to the sponsors and the blockchain community for their support and inspiration.
+
+# License
+This project is licensed under the MIT License - see the LICENSE.md file for details.
