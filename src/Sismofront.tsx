@@ -5,7 +5,7 @@ import { SismoConnectConfig, SismoConnectButton, SismoConnectResponse, AuthReque
 
 const config: SismoConnectConfig = {
   // you will need to get an appId from the Factory
-  appId: "0x641812921a2d8a979edd0f47c70fd6c9", 
+  appId: "enter your own ID", 
 }
 
 function Sismofront() {
