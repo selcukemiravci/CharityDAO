@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import xrpl from 'xrpl';
 import './App.css';
 import Header from './Header';
 import Footer from './Footer';
