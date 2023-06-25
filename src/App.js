@@ -25,7 +25,7 @@ const App = () => {
 
     useEffect(() => {
     const client = new Client("wss://s.altnet.rippletest.net:51233");
-    const wallet = Wallet.fromSeed("sEdTDrA92JzRNCg1EjsZCBjn5MXiWqB"); // Replace with your actual seed
+    const wallet = Wallet.fromSeed("enter your own ID"); // Replace with your actual seed
   
     // Connect to the client
     const connectClient = async () => {
@@ -95,7 +95,7 @@ const App = () => {
       console.log("Client or wallet is not initialized");
       return;
     }
-    const destination = "r4UcZSU1UxiPDQ36453kkipBN3E1DDp3uq"; // The destination address
+    const destination = "enter your destination"; // The destination address
     
     try {
       const prepared = await client.autofill({
