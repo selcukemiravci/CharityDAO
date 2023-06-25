@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Client, Wallet, xrpToDrops } from 'xrpl';
+import { SismoConnectButton, AuthType, SismoConnectResponse } from "@sismo-core/sismo-connect-react";
+import { config } from "./sismo-connect-config.ts";
 import './App.css';
-import Header from './Header';
+import Header from './Header.tsx';
 import Footer from './Footer';
 import VoteOption from './VoteOption';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,8 +21,9 @@ const App = () => {
 
   const [client, setClient] = useState(null);
   const [wallet, setWallet] = useState(null);
-  
-  useEffect(() => {
+
+
+    useEffect(() => {
     const client = new Client("wss://s.altnet.rippletest.net:51233");
     const wallet = Wallet.fromSeed("sEdTDrA92JzRNCg1EjsZCBjn5MXiWqB"); // Replace with your actual seed
   
