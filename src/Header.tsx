@@ -9,7 +9,7 @@ const Header = () => {
   const [SismoConnectResponse, setSismoConnectResponse] = useState<SismoConnectResponse | null>(null);
 
   const config: SismoConnectConfig = {
-    appId: "0x641812921a2d8a979edd0f47c70fd6c9",
+    appId: "enter your own id",
   };
 
   return (
