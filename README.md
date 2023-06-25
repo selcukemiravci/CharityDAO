@@ -20,7 +20,7 @@ Charity DAO Voting App is a blockchain-based web application that democratizes t
 - **Country Selection:** Choose from different countries, each represented by a nouns-dao style NFT, to receive charity funding.
 - **Voting Mechanism:** One vote per user policy with prevention of multiple votes from the same user.
 - **XRPL Integration:** After voting, the app uses XRPL to transfer charity funds to the winning country.
-- **WorldID Login:** Blockchain-based WorldID system for user authentication.
+- **Sismo Authentication:** Blockchain-based system for user authentication pre-voting.
 - **Real-time Vote Count:** Live updates of vote count for informed decision-making
 
 # Tools and Technologies
