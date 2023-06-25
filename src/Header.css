@@ -19,6 +19,20 @@
   display: flex;
   align-items: center;
 }
+.sismo-github-container {
+  display: flex;
+  align-items: center;
+}
+
+.github-link {
+  margin-left: 10px; /* Adjust this as per your needs */
+}
+
+.verification-status {
+  margin-top: 10px; /* Adjust this as per your needs */
+}
+
+
 
 /* Media Queries for responsiveness */
 
