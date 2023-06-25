@@ -6,11 +6,11 @@ import { SismoConnectConfig, SismoConnectButton, SismoConnectResponse, AuthReque
 const emailMemoryStore = new Map();
 
 const config: SismoConnectConfig = {
-  appId: "0x641812921a2d8a979edd0f47c70fd6c9",
+  appId: "enter your own id",
 };
 
 const claimRequest = {
-  groupId: "0x682544d549b8a461d7fe3e589846bb7b",
+  groupId: "enter your own id",
 };
 
 const authRequest = {
