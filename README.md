@@ -114,5 +114,5 @@ This project was made by Ripple interns. List of authors and their GitHub accoun
 We thank our team and everyone who supported us during the ETHWaterloo hackathon. We also extend our gratitude to the sponsors and the blockchain community for their support and inspiration.
 
 # License
-This project is licensed under the MIT License - see the [License MIT](https://github.com/selcukemiravci/CharityDAO./blob/master/LICENSE)
-file for details.
+This project is licensed under the MIT License - see the [ MIT](https://github.com/selcukemiravci/CharityDAO/blob/main/LICENSE)
+license for details.
