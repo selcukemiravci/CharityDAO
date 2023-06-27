@@ -1,8 +1,8 @@
 # CharityDAO
 
-[CharityDAO](https://github.com/selcukemiravci/CharityDAO) is an innovative, user-friendly, single-page web application that fosters community-driven charitable giving. By leveraging cutting-edge technologies such as Next.js, React, and blockchain solutions including XRPL and WorldID, this project aims to create a secure and transparent voting platform where global users can democratically decide which country should receive the charity funds.
+[CharityDAO](https://github.com/selcukemiravci/CharityDAO) is an innovative, user-friendly, single-page web application that fosters community-driven charitable giving. By leveraging cutting-edge technologies such as Next.js, React, and blockchain solutions including XRPL and Sismo, ZK-proof, this project aims to create a secure and transparent voting platform where global users can democratically decide which country should receive the charity funds.
 
-Within [CharityDAO](https://github.com/selcukemiravci/CharityDAO), users are presented with different countries, each represented by a unique NFT, to nominate for charity funding. Votes are cast by simply clicking on the country's image, with the system ensuring the integrity of the voting process by permitting only a single vote per user, verified by WorldID.
+Within [CharityDAO](https://github.com/selcukemiravci/CharityDAO), users are presented with different countries, each represented by a unique NFT, to nominate for charity funding. Votes are cast by simply clicking on the country's image, with the system ensuring the integrity of the voting process by permitting only a single vote per user, verified by Sismo's ZK proof protocol.
 
 To further enhance the transparency of the process, [CharityDAO](https://github.com/selcukemiravci/CharityDAO) includes a real-time vote counting feature, providing live updates on the current standings for each country.
 
@@ -30,7 +30,8 @@ The following technologies and tools were used to build our project:
 - CSS
 - HTML
 - XRP Ledger
-- WorldID Login API
+- Javascript
+- Sismo Connect
 - NOUNS DAO - NFT Playground API
 
 # Installation
