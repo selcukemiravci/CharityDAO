@@ -11,7 +11,8 @@ At the end of the voting period, the funds are swiftly and cost-effectively tran
 The project takes advantage of WorldID for user authentication, thus confirming the legitimacy of each vote and ensuring that only genuine individuals can participate in the voting process.
 
 [CharityDAO](https://github.com/selcukemiravci/CharityDAO) embodies the principles of transparency, engagement, and efficiency in the realm of charitable giving. Its objective is to dispel any concerns of manipulation or corruption, while simultaneously raising awareness and involvement in global causes.
-![Login  for CharityDAO](https://github.com/selcukemiravci/CharityDAO/assets/53044008/81a75c53-2172-45cb-9d66-a500dcd02b44)
+
+![My Movie 1 (2)](https://github.com/selcukemiravci/CharityDAO/assets/53044008/9cfc2cd4-8669-4e39-9599-524016695efd)
 
 
 # Project Overview
