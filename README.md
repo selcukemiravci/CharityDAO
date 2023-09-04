@@ -12,7 +12,9 @@ The project takes advantage of WorldID for user authentication, thus confirming 
 
 [CharityDAO](https://github.com/selcukemiravci/CharityDAO) embodies the principles of transparency, engagement, and efficiency in the realm of charitable giving. Its objective is to dispel any concerns of manipulation or corruption, while simultaneously raising awareness and involvement in global causes.
 
-![Charity DAO Authentication ](https://github.com/selcukemiravci/CharityDAO/assets/53044008/233c6c1d-6fc5-48de-ac96-6eb46b472f71)
+![Authentication ](https://github.com/selcukemiravci/CharityDAO/assets/53044008/4c4c24d0-1fbc-46a3-a9ed-be831d764e72)
+
+![Aut](https://github.com/selcukemiravci/CharityDAO/assets/53044008/4e56fda8-c1ac-4a4c-99c5-8226792d5184)
 
 
 # Project Overview
