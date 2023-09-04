@@ -16,7 +16,13 @@
 
 The CharityDAO Voting App is a beacon of democracy on the blockchain 🛡, empowering global users to direct charitable funds with confidence in its transparency and security.
 
+## 🛡️ Authentication Demo
+This demo showcases the intricate yet seamless process of Sismo Connect's ZK-proof generation for user authentication. It's a testament to the platform's commitment to ensure every vote's authenticity.
+
 ![Authentication](https://github.com/selcukemiravci/CharityDAO/assets/53044008/43f64b30-7733-48ab-9e38-e6c7527720d6)
+
+## 🗳️ App Demo
+Venture into a real-time demonstration of the voting process. With just a few clicks, see how users can cast their votes, ensuring a democratic and transparent mechanism.
 
 ![The app Demo](https://github.com/selcukemiravci/CharityDAO/assets/53044008/081181de-00a8-42d4-be2e-f85303aed2fd)
 
