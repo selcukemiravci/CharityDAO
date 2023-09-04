@@ -14,10 +14,12 @@ The project takes advantage of WorldID for user authentication, thus confirming 
 
 ![Authentication](https://github.com/selcukemiravci/CharityDAO/assets/53044008/67613cdf-9732-4761-b816-cf375943945e)
 
-![Donation](https://github.com/selcukemiravci/CharityDAO/assets/53044008/0bd7439b-d383-4a0f-837c-729f108fdd2a)
 
 # Project Overview
 Charity DAO Voting App is a blockchain-based web application that democratizes the distribution of charitable funds. Users across the globe can vote for a country in need to receive charity funding, with the assurance of transparency, efficiency, and security.
+
+![The app Demo](https://github.com/selcukemiravci/CharityDAO/assets/53044008/081181de-00a8-42d4-be2e-f85303aed2fd)
+
 
 # Key Features
 - **Country Selection:** Choose from different countries, each represented by a nouns-dao style NFT, to receive charity funding.
