@@ -48,7 +48,10 @@ const App = () => {
     USA: 0,
   });
   
-
+  function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+  
     useEffect(() => {
     const client = new Client("wss://s.altnet.rippletest.net:51233");
     const wallet = Wallet.fromSeed(walletSeed); // Replace with your actual seed
@@ -83,33 +86,25 @@ const App = () => {
       await client.connect();
     }
   
-    // Use a temporary array to store promises
-    let promises = Object.entries(votesPerCountry).map(async ([country, votes]) => {
+    // Object to track donations for each country
+    let donationsUpdate = {};
+  
+    for (const [country, votes] of Object.entries(votesPerCountry)) {
       if (votes > 0) {
         const donationAmount = votes * 5;
         try {
-          const resultCode = await sendXrp(donationAmount, country);
-          return { country, status: `Donated ${donationAmount} XRP`, resultCode };
+          await sendXrp(donationAmount, country);
+          donationsUpdate[country] = `Donated ${donationAmount} XRP`;
+          await sleep(1000); // Optional: delay to prevent rate limit issues
         } catch (error) {
           console.error("Error during transaction for", country, ":", error);
-          return { country, status: "Failed to donate", error };
+          donationsUpdate[country] = "Failed to donate";
         }
-      } else {
-        return null;
       }
-    });
-  
-    // Wait for all promises to resolve
-    const results = await Promise.all(promises);
-  
-    // Update state based on results
-    let donationsUpdate = results.reduce((acc, result) => {
-      if (result) acc[result.country] = result.status;
-      return acc;
-    }, {});
-  
-    setDonationsStatus(donationsUpdate);
+    }
     console.log("Votes per Country: ",votesPerCountry); // Check and remove later
+
+    setDonationsStatus(donationsUpdate);
 
   };
   
