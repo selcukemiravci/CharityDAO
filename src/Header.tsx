@@ -1,37 +1,52 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { FaGithub } from 'react-icons/fa';
 import './Header.css';
-import logo from './images/world.png'; // replace with the path to your logo file
-import { SismoConnectConfig, SismoConnectButton, SismoConnectResponse, AuthRequest, AuthType, SismoConnect, SismoConnectVerifiedResult } from "@sismo-core/sismo-connect-react";
+import logo from './images/world.png';
+import { SismoConnectConfig, SismoConnectButton, AuthType } from "@sismo-core/sismo-connect-react";
+import { AppContext } from './AppContext'; // Importing the context
 
 const Header = () => {
+  const { isUserVerified, setIsUserVerified } = useContext(AppContext); // Destructuring to get isUserVerified
+  console.log(isUserVerified); // Check the current verification status
+
   const [verifying, setVerifying] = useState(false);
-  const [SismoConnectResponse, setSismoConnectResponse] = useState<SismoConnectResponse | null>(null);
 
   const config: SismoConnectConfig = {
-    appId: "0x641812921a2d8a979edd0f47c70fd6c9A",
+    appId: "0x641812921a2d8a979edd0f47c70fd6c9",
+  };
+
+  const handleSismoResponse = (response) => {
+    if (response) {
+      console.log("Sismo Connect Response:", response);
+      setIsUserVerified(true); // Update the verification status
+  }
   };
 
   return (
     <header className="header">
       <div className="header-title">
-        <img src={logo} alt="logo" className="logo" style={{marginLeft:30}}/>
+        <img src={logo} alt="logo" className="logo" style={{ marginLeft: 30 }} />
         <h1>CharityDAO</h1>
       </div>
       <div className="sismo-github-container">
         <div>
-          <SismoConnectButton
-            config={config}
-            auth={{authType: AuthType.VAULT}}
-            onResponse={(response) => {
-              setSismoConnectResponse(response);
-              setVerifying(true);
-            }}
-          />
-          {verifying && <p className="verification-status">Verification Completed ✅ </p>}
+          {/* Show the SismoConnectButton only if not yet verified */}
+          {!isUserVerified && !verifying && (
+            <SismoConnectButton
+              config={config}
+              auth={{ authType: AuthType.VAULT }}
+              onResponse={handleSismoResponse}
+              onLoading={(isLoading) => setVerifying(isLoading)}
+              text="Connect Wallet"
+            />
+          )}
+          {/* Display verifying status */}
+          {verifying && <p className="verification-status">Verifying...</p>}
+          {/* Display success message if verified */}
+          {isUserVerified && <p className="verification-status">Wallet Verified ✅</p>}
         </div>
-        <a href="https://github.com/selcukemiravci/CharityDAO" target="_blanSismo" rel="noopener noreferrer" className="github-link">
-          <FaGithub size={30} color="white"/> 
+        <a href="https://github.com/selcukemiravci/CharityDAO" target="_blank" rel="noopener noreferrer" className="github-link">
+          <FaGithub size={30} color="white" />
         </a>
       </div>
     </header>

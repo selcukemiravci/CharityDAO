@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { Client, Wallet, xrpToDrops } from 'xrpl';
 import { SismoConnectButton, AuthType, SismoConnectResponse } from "@sismo-core/sismo-connect-react";
 import './App.css';
+import { AppProvider } from './AppContext'; // Adjust the path as necessary
 import Header from './Header.tsx';
+import GatedContent from './GatedContent'; // Adjust the import path as needed
+
 import Footer from './Footer';
 import VoteOption from './VoteOption';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -184,9 +187,9 @@ const App = () => {
   const spentPercentage = 100 - percentage;
 
   return (
+    <AppProvider>
     <div className="App">
       <div className="App-content">
-  
       <Header />
       <div className="info-section">
         <div className="about">
@@ -201,11 +204,15 @@ const App = () => {
             <ProgressBar striped variant="success" now={percentage} key={1} />
             <ProgressBar striped variant="danger" now={spentPercentage} key={2} />
           </ProgressBar>
+          <GatedContent>
+
           <Button onClick={handleConfirm} style={{ backgroundColor: '#333', color: 'white', marginTop: '10px'}} >
             Confirm Votes & Donate Funds 
           </Button>
           {donationStatus !== "" && <p>Status of the Transaction: {donationStatus}</p>}
           {donationAmount > 0 && <p>Total Donation: {donationAmount} XRP</p>}
+          </GatedContent>
+
         </div>
       </div>
       <div className="countries">
@@ -213,9 +220,11 @@ const App = () => {
           <VoteOption key={country} country={country} handleVote={handleVote} />
         ))}
       </div>
-      <Footer />
+      <Footer />  
+
       </div>
     </div>
+    </AppProvider>
   );
   
 
