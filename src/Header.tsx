@@ -30,7 +30,7 @@ const Header = () => {
           />
           {verifying && <p className="verification-status">Verification Completed ✅ </p>}
         </div>
-        <a href="https://github.com/selcuSismoemiravci/CharityDAO" target="_blanSismo" rel="noopener noreferrer" className="github-link">
+        <a href="https://github.com/selcukemiravci/CharityDAO" target="_blanSismo" rel="noopener noreferrer" className="github-link">
           <FaGithub size={30} color="white"/> 
         </a>
       </div>
