@@ -34,6 +34,7 @@ const App = () => {
   const [client, setClient] = useState(null);
   const [wallet, setWallet] = useState(null);
   const [donationStatus, setDonationStatus] = useState("");
+  const [donationReceipts, setDonationReceipts] = useState([]);
   const [donationAmount, setDonationAmount] = useState(0);
   
   const walletSeed = process.env.REACT_APP_XRP_WALLET_SEED;
@@ -85,28 +86,34 @@ const App = () => {
     if (!client.isConnected()) {
       await client.connect();
     }
+    setDonationStatus("Processing donations... ⏳"); // Preliminary status
   
-    // Object to track donations for each country
-    let donationsUpdate = {};
+    let receipts = []; // To store donation receipts for each country
   
     for (const [country, votes] of Object.entries(votesPerCountry)) {
       if (votes > 0) {
         const donationAmount = votes * 5;
         try {
           await sendXrp(donationAmount, country);
-          donationsUpdate[country] = `Donated ${donationAmount} XRP`;
-          await sleep(1000); // Optional: delay to prevent rate limit issues
+          // Successfully donated
+          receipts.push(`${donationAmount} XRP to ${country}`);
         } catch (error) {
           console.error("Error during transaction for", country, ":", error);
-          donationsUpdate[country] = "Failed to donate";
+          // Donation failed
+          receipts.push(`Failed to donate to ${country}`);
         }
       }
     }
-    console.log("Votes per Country: ",votesPerCountry); // Check and remove later
-
-    setDonationsStatus(donationsUpdate);
-
+  
+    // Combine all receipts into a single string
+    const receiptString = receipts.join(", ");
+    
+    // Update the donationStatus with a message that includes all receipts
+    setDonationStatus(`Donations processed successfully ✅ ${receiptString}`);
+  
+    // If you still want to separately track the detailed receipts, you can update another state or keep it in donationStatus as above
   };
+  
   
   
     
@@ -204,13 +211,6 @@ const App = () => {
       <div className="countries">
         {countries.map((country) => (
           <VoteOption key={country} country={country} handleVote={handleVote} />
-        ))}
-      </div>
-      {/* Donation Statuses Section */}
-      <div className="donation-statuses">
-        <h3>Donation Statuses:</h3>
-        {Object.entries(donationsStatus).map(([country, status]) => (
-          <p key={country}>{country}: {status}</p>
         ))}
       </div>
       <Footer />
