@@ -4,9 +4,11 @@
   "homepage": "https://selcukemiravci.github.io/charitydao",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@metamask/detect-provider": "^2.0.0",
-    "@mui/material": "^5.13.6",
+    "@mui/material": "^5.15.10",
+    "@sismo-core/sismo-connect-client": "^0.0.23",
     "@sismo-core/sismo-connect-react": "^0.0.15",
     "@sismo-core/zk-connect-react": "^0.0.4",
     "@sismo-core/zk-connect-server": "^0.0.5",
@@ -25,7 +27,7 @@
     "react-scripts": "^5.0.1",
     "web-vitals": "^2.1.4",
     "web3": "^4.0.1",
-    "xrpl": "^2.8.1"
+    "xrpl": "^2.14.1"
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -54,6 +56,7 @@
     ]
   },
   "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "assert": "^2.0.0",
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.0",
@@ -64,6 +67,7 @@
     "react-app-rewired": "^2.2.1",
     "stream-browserify": "^3.0.0",
     "stream-http": "^3.2.0",
+    "typescript": "^5.3.3",
     "url": "^0.11.1"
   }
 }

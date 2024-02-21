@@ -1,0 +1,25 @@
+Note that these are testnet accounts, created via: https://xrpl.org/xrp-testnet-faucet.html. Each one of these addresses will be serving as the destination wallet for the countries during voting.
+
+Singapore Address: rha5VWLoYey7d3SLRDk3ppC81qZp6iMtQy
+Secret: sEdVfG9tWYvdc3C8x2NMvgTYRXtNP8y
+
+Canada Address: rahCX3bwmNJHKP92rBCM8sMCePkttDh4ap
+Secret: sEdVX2tQXGEZJSn21SxvoD7KusqXVQL
+
+Brazil Address: rn5C4DHvZJToUwd1NNKQSNmMC99ZEuTL7q
+Secret: sEdSF6L21bM2ZqHSG5tT3H1FRQ55mwR
+
+France Address: rUVjbPwkDBxE82JbXP4wJ26KsT3nH31XRT
+Secret: sEdSmjGTr8bGvwRMaJLna77by4KwCpZ
+
+Australia Address: rJNuGFMcCASYa4QYcfPRkobzWgpPaRPQGX
+Secret: sEdS4yHia35WxErzQyXAkRCFhTi98M3
+
+Iceland Address: rhW61Gu6fTZMVXp1qNvSbC9jcw8ZW2RqJr
+Secret: sEdVDTLMLhM2m5whsCE9U6P5wC3uwDi
+
+Japan Address: rQJkTvPYBGmTXTvZrss867PSEPPF3RkB5A
+Secret: sEdSSriRtcXTw1zFUMctRDJ6DsH6y6C
+
+USA Address: rGSFogeY14njsaCw2o3R8UwB9HBPe16t2V
+Secret: sEdVabj7XZ9uw7TVazHrLtpocKAJTMC
