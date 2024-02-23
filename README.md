@@ -61,12 +61,16 @@ A word of caution: No turning back after this! When you're ready, dive deeper in
 
 Discover more with the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started) and [React documentation](https://reactjs.org/).
 
-# ✍️ Authors
+# ✍️ Initial Authors
 
-A salute to the maestros behind this project, our Ripple interns:
+A salute to the maestros behind this project:
 - [Emir Avci](https://github.com/selcukemiravci)
 - [Joseph Chen](https://github.com/Josephtw0305)
 - [Derrick Nguyen](https://github.com/derr-stack/)
+
+# ✍️ Further Development
+Further development to this application has been implemented by [Emir Avci](https://github.com/selcukemiravci).
+
 
 # 🙌 Acknowledgments
 
