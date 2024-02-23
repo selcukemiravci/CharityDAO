@@ -5,7 +5,6 @@ import './App.css';
 import { AppProvider } from './AppContext'; // Adjust the path as necessary
 import Header from './Header.tsx';
 import GatedContent from './GatedContent'; // Adjust the import path as needed
-
 import Footer from './Footer';
 import VoteOption from './VoteOption';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -276,6 +275,7 @@ const progressPercentage = (capital / maxBalance) * 100;
         </div>
         <div className="prize-pool">
           <h2>Account Capital 💰</h2>
+          
           <div className="fund-amount">{capital} XRP</div>
           <ProgressBar className="fund-progressbar" style={{ marginBottom: '20px' }}>
             <ProgressBar striped variant="success" now={progressPercentage} key={1}  />
@@ -311,6 +311,8 @@ const progressPercentage = (capital / maxBalance) * 100;
           </GatedContent>
         </div>
       </div>
+      <GatedContent>
+
       <div className="countries">
         
         {countries.map((country) => (
@@ -320,6 +322,8 @@ const progressPercentage = (capital / maxBalance) * 100;
           
         ))}
       </div>
+      </GatedContent>
+
       <Footer />  
 
       </div>
