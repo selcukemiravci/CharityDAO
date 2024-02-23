@@ -141,54 +141,57 @@ const handleSeedChange = (e) => {
   const handleConfirm = async () => {
     setError(''); // Reset any previous error messages
     setDonationStatus('');
-
-    // Ensure that the client is connected and the wallet instance is valid before proceeding
+  
     if (!client.isConnected() || !isConnected) {
       setError('Please connect your wallet first.');
       return;
     }
+  
     const totalVotes = Object.values(votesPerCountry).reduce((acc, votes) => acc + votes, 0);
     if (totalVotes === 0) {
-        setError("Please vote on the countries before confirming donations.");
-        return;
+      setError("Please vote on the countries before confirming donations.");
+      return;
     }
-
-    setDonationStatus("Processing donations... ⏳"); // Preliminary status
+  
+    setDonationStatus("Processing donations... ⏳");
     console.log('Donation status should be set to processing.');
-
+  
     let receipts = []; // To store donation receipts for each country
   
     for (const [country, votes] of Object.entries(votesPerCountry)) {
       if (votes > 0) {
-        const donationAmount = votes * 5;
-        // Check if the user has enough balance to make the donation
+        const donationAmount = votes * 1;
         if (donationAmount > capital) {
           setError(`Insufficient balance to donate ${donationAmount} XRP to ${country}.`);
           continue; // Skip this donation and continue with the next one
         }
         try {
-          const sendResult = await sendXrp(donationAmount, country, userWallet); // Adjust sendXrp to accept userWallet
-          // Successfully donated
+          const sendResult = await sendXrp(donationAmount, country, userWallet);
           receipts.push(`${donationAmount} XRP to ${country} (TXID: ${sendResult})`);
-          // Deduct the donation amount from the user's balance
-          setCapital(prevCapital => prevCapital - donationAmount); 
+          // Assume a deduction for the demo
+          setCapital(prevCapital => prevCapital - donationAmount);
         } catch (error) {
           console.error("Error during transaction for", country, ":", error);
-          }
+        }
       }
     }
   
-    // Combine all receipts into a single string
+    // Introduce a delay before refreshing the balance
+    setTimeout(async () => {
+      try {
+        const refreshedBalance = await client.getXrpBalance(userWallet.classicAddress);
+        setCapital(parseInt(refreshedBalance)); // Update capital with refreshed balance
+        console.log("Refreshed User Balance: ", refreshedBalance);
+      } catch (error) {
+        console.error("Error refreshing balance:", error);
+        setError('Failed to refresh account balance.');
+      }
+    }, 10000); // Delay of 10 seconds
+  
     const receiptString = receipts.join(", ");
-    console.log('Transaction submitted, donation status: ' + receipts);
-
-    // Update the donationStatus with a message that includes all receipts
     setDonationStatus(`Donations processed successfully ✅ ${receiptString}`);
-
-    
   };
- 
-    
+  
   const sendXrp = async (amount, country, userWallet) => {
     if (client === null || userWallet === null) {
         console.log("Client or wallet is not initialized");
@@ -219,30 +222,29 @@ const handleSeedChange = (e) => {
     }
 };
 
-
-
-
-const handleVote = (country, vote, oldVote) => {
-  setVotesPerCountry(prevVotes => {
-    // Copy the current state to avoid direct mutation
-    const updatedVotes = { ...prevVotes };
-
-    // Increment or decrement based on the vote
-    if (vote === 'yes') {
-      updatedVotes[country] = (updatedVotes[country] || 0) + 1;
-    } else if (vote === 'no' && updatedVotes[country] > 0) {
-      // Ensure we don't go below 0 votes
-      updatedVotes[country] -= 1;
+const handleVote = (country, donationAmount, isReset = false) => {
+  // Check if we're resetting the donations
+  if (isReset) {
+    setVotesPerCountry(prevVotes => {
+      const updatedVotes = { ...prevVotes };
+      // Subtract the country's donated amount from the total donations
+      const refundedAmount = updatedVotes[country] || 0;
+      updatedVotes[country] = 0; // Reset the donation for this country
+      setCapital(prevCapital => prevCapital + refundedAmount); // Refund the capital
+      return updatedVotes;
+    });
+  } else {
+    // Handle the case for submitting a donation
+    if (!donationAmount || donationAmount <= 0) {
+      console.error('Invalid donation amount');
+      return;
     }
-
-    return updatedVotes;
-  });
-
-  // Update the vote counts but not the capital or progress
-  if (vote === 'yes') {
-    setYesVotes(prevYesVotes => oldVote === 'yes' ? prevYesVotes - 1 : prevYesVotes + 1);
-  } else if (vote === 'no') {
-    setNoVotes(prevNoVotes => oldVote === 'no' ? prevNoVotes - 1 : prevNoVotes + 1);
+    setVotesPerCountry(prevVotes => {
+      const updatedVotes = { ...prevVotes };
+      updatedVotes[country] = (updatedVotes[country] || 0) + donationAmount;
+      return updatedVotes;
+    });
+    setCapital(prevCapital => prevCapital - donationAmount); // Deduct the donation from the capital
   }
 };
 

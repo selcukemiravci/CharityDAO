@@ -1,81 +1,104 @@
 import React, { useState, useEffect } from 'react';
 import { ProgressBar } from 'react-bootstrap';
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import './VoteOption.css';
 
-const VoteOption = ({ country, handleVote }) => {
-  const [votes, setVotes] = useState({ yes: Math.floor(Math.random() * 100) + 1, no: Math.floor(Math.random() * 100) + 1 });
+const VoteOption = ({ country, handleVote, targetDonation = 10000 }) => {
+  const [donationAmount, setDonationAmount] = useState('');
+  const [feedbackMessage, setFeedbackMessage] = useState('');
+  const [resetMessage, setResetMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [totalDonated, setTotalDonated] = useState(0);
   const [countryImage, setCountryImage] = useState(null);
-  const [selectedVote, setSelectedVote] = useState(null);
-  const [hasVoted, setHasVoted] = useState(false);
 
   useEffect(() => {
     import(`./images/${country.toLowerCase()}.png`)
-      .then((image) => {
-        setCountryImage(image.default);
-      })
-      .catch((error) => {
-        console.error(`Error loading image: ${error}`);
-      });
+      .then((image) => setCountryImage(image.default))
+      .catch((error) => console.error(`Error loading image: ${error}`));
   }, [country]);
 
-  const vote = (type) => {
-    if (selectedVote === type) {
-      setSelectedVote(null);
-      setVotes(prevVotes => ({
-        ...prevVotes,
-        [type]: prevVotes[type] - 1,
-      }));
-      if (hasVoted) {
-        handleVote(country, type, type); // Refund the vote
-        setHasVoted(false);
-      }
-    } else {
-      setSelectedVote(type);
-      setVotes(prevVotes => ({
-        ...prevVotes,
-        [type]: prevVotes[type] + 1,
-      }));
-      if (!hasVoted) {
-        handleVote(country, type, selectedVote); // Deduct the vote
-        setHasVoted(true);
-      }
-    }
+  const handleDonationChange = (event) => {
+    setDonationAmount(event.target.value);
   };
 
-  const totalVotes = votes.yes + votes.no;
-  const yesPercentage = totalVotes ? (votes.yes / totalVotes) * 100 : 0;
-  const noPercentage = totalVotes ? (votes.no / totalVotes) * 100 : 0;
+  const submitDonation = () => {
+    const donation = parseInt(donationAmount, 10);
+    if (isNaN(donation) || donation <= 0) {
+      setErrorMessage('Please enter a positive number for your donation.');
+      setResetMessage(''); // Clear reset message when submitting a new donation
+    } else {
+      setTotalDonated(prevTotal => {
+        const updatedTotal = prevTotal + donation;
+        setFeedbackMessage(`Just ordered ${donation} XRP Donation, your total donation now is ${totalDonated + donation} XRP. Please confirm your transaction to approve.`);
+        return updatedTotal;
+      });
+      handleVote(country, donation);
+      setDonationAmount(''); // Reset input field
+      setErrorMessage(''); // Clear any error message
+      setResetMessage(''); // Also clear reset message when a valid donation is submitted
+    }
+  };
+  
+  const resetDonations = () => {
+    handleVote(country, 0, true); // Notify the App component to reset the donations for this country
+    setResetMessage(`Your donations for ${country} have been reset to 0 XRP`);
+    setTotalDonated(0);
+    setFeedbackMessage('');
+    setErrorMessage('');
+  };
+  
+  
+
+  const donationProgress = Math.min((totalDonated / targetDonation) * 100, 100);
 
   return (
     <div className="vote-option" style={{ paddingBottom: '20px' }}>
+
+      <h3>Target Donation: {targetDonation} XRP</h3>
       {countryImage && <img src={countryImage} alt={country} />}
       <h2>{country}</h2>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-      <Button 
-      variant="contained"
-      onClick={() => vote('yes')}
-      disabled={selectedVote === 'no'}
-      style={{width: '45%', backgroundColor: selectedVote === 'no' ? 'transparent' : '#333', color: 'white', marginBottom: '10px'}}
-      >
-      Yes: {yesPercentage.toFixed(2)}%
+      <div style={{ width: '100%', maxWidth: '500px' }}>
+      <TextField
+        id="outlined-number"
+        label="XRP Donation Amount"
+        type="number"
+        InputLabelProps={{ shrink: true, style: { color: '#fff' } }}
+        InputProps={{ style: { color: '#fff', backgroundColor: 'rgba(0, 0, 0, 0.5)' } }}
+        variant="outlined"
+        value={donationAmount}
+        onChange={handleDonationChange}
+        fullWidth
+        sx={{
+          "& .MuiOutlinedInput-root": {
+            "& fieldset": { borderColor: "black" },
+            "&:hover fieldset": { borderColor: "lightgray" },
+            "&.Mui-focused fieldset": { borderColor: "white" },
+          }
+        }}
+      />
+      <div style={{ marginTop: '10px', display: 'flex', justifyContent: 'center', width: '100%', gap: '10px' }}>
+      <Button variant="contained" onClick={submitDonation} style={{ backgroundColor: '#333', color: 'white' }}>
+        Submit Donation
       </Button>
-      <Button 
-      variant="contained"
-      onClick={() => vote('no')}
-      disabled={selectedVote === 'yes'}
-      style={{width: '45%', backgroundColor: selectedVote === 'yes' ? 'transparent' : '#333', color: 'white', marginBottom: '10px'}}
-      >
-      No: {noPercentage.toFixed(2)}%
+      <Button variant="contained" onClick={resetDonations} style={{ backgroundColor: '#777', color: 'white' }}>
+        Reset
       </Button>
-
       </div>
-      <ProgressBar>
-        <ProgressBar striped variant="success" now={yesPercentage} key={1} />
-        <ProgressBar striped variant="danger" now={noPercentage} key={2} />
-      </ProgressBar>
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+      {feedbackMessage && <p style={{ color: 'white' }}>{feedbackMessage}</p>}
+      {resetMessage && <p style={{ color: 'yellow' }}>{resetMessage}</p>}
+
+      {/* Ensure the ProgressBar container has a full width */}
+      <div style={{ width: '100%', maxWidth: '500px', marginTop: '20px' }}> 
+        <ProgressBar striped variant="info" now={donationProgress} label={`${totalDonated} XRP`} style={{ width: '100%' }} />
+      </div>
     </div>
+    </div>
+
   );
 };
+
+
 
 export default VoteOption;
