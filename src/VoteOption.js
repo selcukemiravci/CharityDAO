@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import './VoteOption.css';
 
-const VoteOption = ({ country, handleVote, handleReset, targetDonation = 10000 }) => {
+const VoteOption = ({ country, handleVote, handleReset, isConnected, targetDonation = 10000 }) => {
   const [donationAmount, setDonationAmount] = useState('');
   const [feedbackMessage, setFeedbackMessage] = useState('');
   const [resetMessage, setResetMessage] = useState('');
@@ -23,7 +23,13 @@ const VoteOption = ({ country, handleVote, handleReset, targetDonation = 10000 }
   };
 
   const submitDonation = () => {
+
+    if (!isConnected) {
+      setErrorMessage("Please connect your wallet before submitting a donation.");
+      return; // Prevent further execution
+    }
     const donation = parseInt(donationAmount, 10);
+
     if (isNaN(donation) || donation <= 0) {
       setErrorMessage('Please enter a positive number for your donation.');
       setResetMessage(''); // Clear reset message when submitting a new donation
@@ -89,9 +95,9 @@ const VoteOption = ({ country, handleVote, handleReset, targetDonation = 10000 }
         Reset
       </Button>
       </div>
-      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       {feedbackMessage && <p style={{ color: 'white' }}>{feedbackMessage}</p>}
       {resetMessage && <p style={{ color: 'yellow' }}>{resetMessage}</p>}
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
 
       {/* Ensure the ProgressBar container has a full width */}
       <div style={{ width: '100%', maxWidth: '500px', marginTop: '20px' }}> 

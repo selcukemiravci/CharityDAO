@@ -324,8 +324,13 @@ const progressPercentage = (capital / maxBalance) * 100;
         
         {countries.map((country) => (
           
-        <VoteOption key={country} country={country} handleVote={handleVote} handleReset={() => handleReset(country)} />
-
+        <VoteOption
+          key={country}
+          country={country}
+          handleVote={handleVote}
+          handleReset={() => handleReset(country)}
+          isConnected={isConnected} // Assuming isConnected is a state in App.js
+        />
           
         ))}
       </div>
