@@ -41,11 +41,10 @@ const VoteOption = ({ country, handleVote, targetDonation = 10000 }) => {
   };
   
   const resetDonations = () => {
-    handleVote(country, 0, true); // Notify the App component to reset the donations for this country
-    setResetMessage(`Your donations for ${country} have been reset to 0 XRP`);
     setTotalDonated(0);
-    setFeedbackMessage('');
-    setErrorMessage('');
+    setResetMessage(`Your donations have been reset to 0 XRP`);
+    setErrorMessage(''); // Clear any error message
+    setFeedbackMessage(''); // Clear feedback message when resetting donations
   };
   
   

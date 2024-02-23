@@ -44,7 +44,7 @@ const App = () => {
   const [error, setError] = useState('');
   const [connectionStatus, setConnectionStatus] = useState('');
   const [userWallet, setUserWallet] = useState(null);
-
+  const [temporaryReceipt, setTemporaryReceipt] = useState([]);
   const [userSeed, setUserSeed] = useState('');
 
 const handleSeedChange = (e) => {
@@ -95,7 +95,10 @@ const handleSeedChange = (e) => {
   const handleCountryChange = (event) => {
     setSelectedCountry(event.target.value);
   };
-
+  const clearTemporaryReceipt = () => {
+    setTemporaryReceipt([]);
+  };
+  
   const handleConnect = async () => {
     if (!userSeed.trim()) { // Check if the input is empty or only contains whitespace
       setError("Please enter your wallet's seed phrase before connecting.");
@@ -189,6 +192,7 @@ const handleSeedChange = (e) => {
     }, 10000); // Delay of 10 seconds
   
     const receiptString = receipts.join(", ");
+    setTemporaryReceipt([]); // Clear temporary receipts once the donations are processed
     setDonationStatus(`Donations processed successfully ✅ ${receiptString}`);
   };
   
@@ -224,6 +228,13 @@ const handleSeedChange = (e) => {
 
 const handleVote = (country, donationAmount, isReset = false) => {
   // Check if we're resetting the donations
+  if (!isReset && donationAmount > 0) {
+    setTemporaryReceipt(prevReceipt => [
+      ...prevReceipt,
+      `Pledged ${donationAmount} XRP to ${country}`
+    ]);
+  }
+  
   if (isReset) {
     setVotesPerCountry(prevVotes => {
       const updatedVotes = { ...prevVotes };
@@ -293,7 +304,10 @@ const progressPercentage = (capital / maxBalance) * 100;
             {isConnected && <p style={{ color: 'green' }}>Connected to the client server.</p>}
             {donationStatus && <p>Status of the Transaction: {donationStatus}</p>}
             {donationAmount > 0 && <p>Total Donation: {donationAmount} XRP</p>}
-
+            {temporaryReceipt.length > 0 && !donationStatus
+              ? (<p>Temporary Receipt: {temporaryReceipt.join(", ")}</p>)
+              : donationStatus && (<p>Status of the Transaction: {donationStatus}</p>)
+          }
           </GatedContent>
         </div>
       </div>
@@ -301,7 +315,8 @@ const progressPercentage = (capital / maxBalance) * 100;
         
         {countries.map((country) => (
           
-          <VoteOption key={country} country={country} handleVote={handleVote} />
+          <VoteOption key={country} country={country} handleVote={handleVote}   clearTemporaryReceipt={clearTemporaryReceipt}
+          />
           
         ))}
       </div>
