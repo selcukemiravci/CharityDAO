@@ -195,25 +195,32 @@ const handleSeedChange = (e) => {
         return;
     }
     const destination = countryWallets[country]; // Dynamically set the destination based on the country
-    
+
     try {
         const prepared = await client.autofill({
             "TransactionType": "Payment",
             "Account": userWallet.address,
-            "Amount": xrpToDrops(String(amount)),
+            "Amount": xrpToDrops(String(amount)), // Ensure xrpToDrops is correctly imported or available
             "Destination": destination
         });
         const signed = userWallet.sign(prepared);
         const prelimResult = await client.submit(signed.tx_blob);
-        console.log('Transaction submitted, preliminary result: ' + prelimResult.resultCode);
+        console.log('Transaction submitted, preliminary result: ', prelimResult.resultCode);
 
-        return prelimResult.resultCode; // or return a more specific transaction ID if available
+        // Here, instead of returning resultCode, return the transaction hash
+        const transactionID = prelimResult.result?.tx_json?.hash;
+        console.log('Transaction ID:', transactionID);
+
+        return transactionID; // Return the transaction ID
     } catch (error) {
-      console.error("Error during transaction for", country, ":", error);
-      setDonationStatus(`Error during transaction for ${country}`);
-      throw error;
+        console.error("Error during transaction for", country, ":", error);
+        setDonationStatus(`Error during transaction for ${country}`);
+        throw error;
     }
 };
+
+
+
 
 const handleVote = (country, vote, oldVote) => {
   setVotesPerCountry(prevVotes => {
@@ -272,6 +279,7 @@ const progressPercentage = (capital / maxBalance) * 100;
             onChange={handleSeedChange} 
             fullWidth // Ensures the TextField takes the full width of its parent
           />
+          
           <Button onClick={handleConnect} style={{ backgroundColor: '#333', color: 'white', marginLeft: '10px' }}>
             Connect & Show Balance
           </Button>
@@ -288,8 +296,11 @@ const progressPercentage = (capital / maxBalance) * 100;
         </div>
       </div>
       <div className="countries">
+        
         {countries.map((country) => (
+          
           <VoteOption key={country} country={country} handleVote={handleVote} />
+          
         ))}
       </div>
       <Footer />  
