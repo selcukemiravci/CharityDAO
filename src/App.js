@@ -302,12 +302,12 @@ const progressPercentage = (capital / maxBalance) * 100;
         </div>
             {error && <p style={{ color: 'red' }}>{error}</p>}
             {isConnected && <p style={{ color: 'green' }}>Connected to the client server.</p>}
-            {donationStatus && <p>Status of the Transaction: {donationStatus}</p>}
             {donationAmount > 0 && <p>Total Donation: {donationAmount} XRP</p>}
-            {temporaryReceipt.length > 0 && !donationStatus
-              ? (<p>Temporary Receipt: {temporaryReceipt.join(", ")}</p>)
-              : donationStatus && (<p>Status of the Transaction: {donationStatus}</p>)
-          }
+            {
+          temporaryReceipt.length > 0 && !donationStatus
+            ? (<p>Temporary Receipt: {temporaryReceipt.join(", ")}</p>)
+            : donationStatus && (<p>Status of the Transaction: {donationStatus}</p>)
+        }
           </GatedContent>
         </div>
       </div>
