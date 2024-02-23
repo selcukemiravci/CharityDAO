@@ -97,6 +97,13 @@ const handleSeedChange = (e) => {
   const clearTemporaryReceipt = () => {
     setTemporaryReceipt([]);
   };
+
+  const handleReset = (country) => {
+    // Reset the specific country's vote count
+    setVotesPerCountry(prevVotes => ({ ...prevVotes, [country]: 0 }));
+    // Optionally, clear the temporary receipt related to this country
+    setTemporaryReceipt(prevReceipts => prevReceipts.filter(receipt => !receipt.includes(country)));
+  };
   
   const handleConnect = async () => {
     if (!userSeed.trim()) { // Check if the input is empty or only contains whitespace
@@ -317,8 +324,8 @@ const progressPercentage = (capital / maxBalance) * 100;
         
         {countries.map((country) => (
           
-          <VoteOption key={country} country={country} handleVote={handleVote}   clearTemporaryReceipt={clearTemporaryReceipt}
-          />
+        <VoteOption key={country} country={country} handleVote={handleVote} handleReset={() => handleReset(country)} />
+
           
         ))}
       </div>

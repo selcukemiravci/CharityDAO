@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import './VoteOption.css';
 
-const VoteOption = ({ country, handleVote, targetDonation = 10000 }) => {
+const VoteOption = ({ country, handleVote, handleReset, targetDonation = 10000 }) => {
   const [donationAmount, setDonationAmount] = useState('');
   const [feedbackMessage, setFeedbackMessage] = useState('');
   const [resetMessage, setResetMessage] = useState('');
@@ -41,11 +41,16 @@ const VoteOption = ({ country, handleVote, targetDonation = 10000 }) => {
   };
   
   const resetDonations = () => {
+    // Reset local state as before
     setTotalDonated(0);
     setResetMessage(`Your donations have been reset to 0 XRP`);
-    setErrorMessage(''); // Clear any error message
-    setFeedbackMessage(''); // Clear feedback message when resetting donations
+    // Clear any error and feedback messages
+    setErrorMessage('');
+    setFeedbackMessage('');
+    // Invoke the reset handler passed from the parent component
+    handleReset(); // This will call the function in App.js
   };
+  
   
   
 
