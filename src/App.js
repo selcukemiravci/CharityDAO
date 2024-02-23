@@ -275,7 +275,7 @@ const progressPercentage = (capital / maxBalance) * 100;
           CharityDAO is a decentralized platform fostering global change. For each one of your vote, we will donate 5 XRP from our funding pool to countries/charities, directing funds where they matter most. Join us, and let your vote shape the world 🪂 🎁 💌 </p>
         </div>
         <div className="prize-pool">
-          <h2>Charity Capital 💰</h2>
+          <h2>Account Capital 💰</h2>
           <div className="fund-amount">{capital} XRP</div>
           <ProgressBar className="fund-progressbar" style={{ marginBottom: '20px' }}>
             <ProgressBar striped variant="success" now={progressPercentage} key={1}  />
