@@ -1,81 +1,82 @@
-# 🌍 CharityDAO
+🌍 CharityDAO
+=============
 
-[CharityDAO](https://github.com/selcukemiravci/CharityDAO) is an innovative 🌟, user-friendly web application that nurtures community-driven charitable giving 🤝. Dive deep into a transparent voting platform built with top-notch technologies like Next.js, React, and groundbreaking blockchain solutions like XRPL, Sismo, and ZK-proof.
+Welcome to [CharityDAO](https://charity-dao-1.vercel.app/), where blockchain technology meets philanthropy to create a transparent and impactful platform for charitable giving. By leveraging the XRPL (XRP Ledger) and ZK-proof technology via Sismo Connect, CharityDAO ensures each contribution is meaningful, transparent, and directly supports global causes.
 
-🌐 Within CharityDAO, nominate countries for charity via unique NFTs. Cast your vote 🗳 with a click, and rest assured of its authenticity with Sismo's ZK proof protocol.
+🔐 Getting Started
+------------------
 
-📊 Watch the votes tally in real-time and witness transparency at its finest.
+To get started with CharityDAO, follow these steps:
 
-💰 Once the voices have spoken, funds swiftly make their way to the deserving through the XRPL blockchain tech.
+### 🛠 Installation
 
-🔐 Thanks to Sismo Connect ZK human authentication, every vote stands tall on the pillars of authenticity and legitimacy.
+1.  Clone the repository:
 
-🔍 CharityDAO stands as a beacon of transparency, engagement, and efficiency in the vast sea of charitable giving.
+    bashCopy code
 
-# 📌 Project Overview
+    `git clone https://github.com/your-username/charity-dao.git`
 
-The CharityDAO Voting App is a beacon of democracy on the blockchain 🛡, empowering global users to direct charitable funds with confidence in its transparency and security.
+2.  Navigate to the project directory:
 
-## 🛡️ Authentication Demo
-This demo showcases the intricate yet seamless process of Sismo Connect's ZK-proof generation for user authentication. It's a testament to the platform's commitment to ensure every vote's authenticity.
+    bashCopy code
 
-![Authentication](https://github.com/selcukemiravci/CharityDAO/assets/53044008/43f64b30-7733-48ab-9e38-e6c7527720d6)
+    `cd charity-dao`
 
-## 🗳️ App Demo
-Venture into a real-time demonstration of the voting process. With just a few clicks, see how users can cast their votes, ensuring a democratic and transparent mechanism.
+3.  Install dependencies:
 
-![The app Demo](https://github.com/selcukemiravci/CharityDAO/assets/53044008/081181de-00a8-42d4-be2e-f85303aed2fd)
+    bashCopy code
 
-# 🚀 Key Features
-- **Sismo Authentication:** A ZK-based authentication for genuine voting.
-- **Voting Mechanism:** A true democracy with a one vote per user system.
-- **XRPL Integration:** Ensuring the winning country receives the funds via XRPL.
+    `npm install`
 
-# 🧰 Tools and Technologies
+4.  Start the application:
 
-Dive into the tech stack:
-- ReactJS
-- Node.js
-- CSS
-- HTML
-- XRP Ledger
-- Javascript
-- Sismo Connect
-- NOUNS DAO
-  
-# 🛠 Installation
+    bashCopy code
 
-Bootstrapped with [Create React App](https://github.com/facebook/create-react-app), follow these steps for a smooth sailing setup:
+    `npm start`
 
-### `npm start`
-Run the app locally at [http://localhost:3000](http://localhost:3000). Any change you make? The page refreshes for you.
+    This command runs the app in development mode. Open [http://localhost:3000](http://localhost:3000/) to view it in the browser or simply visit the live [deployment](https://charity-dao-1.vercel.app/).
 
-### `npm test`
-Dive into the test mode and explore further with the [running tests](https://facebook.github.io/create-react-app/docs/running-tests) guide.
+🗳️ How to Use
+--------------
 
-### `npm run build`
-Time to go live? This bundles up your app for production in the `build` folder. Once built, deploy with help from the [deployment guide](https://facebook.github.io/create-react-app/docs/deployment).
+1.  Visit: Head over to [CharityDAO](https://charity-dao-1.vercel.app/) and discover a platform where your vote directly contributes to global charitable causes.
 
-### `npm run eject`
-A word of caution: No turning back after this! When you're ready, dive deeper into customization.
+2.  Authenticate: Confirm your humanity with Sismo Connect's ZK-proof to ensure a secure and legitimate voting process.
 
-Discover more with the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started) and [React documentation](https://reactjs.org/).
+3.  Connect: Enter your XRPL testnet wallet seed to connect your wallet securely. Acquire a testnet seed from the [XRP Testnet Faucet](https://xrpl.org/xrp-testnet-faucet.html) if needed.
 
-# ✍️ Initial Authors
+4.  Donate: Select the countries you wish to support and specify your donation amounts. Submit to add your tentative votes.
 
-A salute to the maestros behind this project:
-- [Emir Avci](https://github.com/selcukemiravci)
-- [Joseph Chen](https://github.com/Josephtw0305)
-- [Derrick Nguyen](https://github.com/derr-stack/)
+5.  Review: Before confirming your transactions, a live-time voting receipt is presented, allowing you to see and adjust your contributions.
 
-# ✍️ Further Development
-Further development to this application has been implemented by [Emir Avci](https://github.com/selcukemiravci).
+6.  Confirm: Upon confirmation, transactions are processed, and you receive a TXid for each vote, which can be verified on <https://testnet.xrpl.org/>.
 
+🚀 Key Features
+---------------
 
-# 🙌 Acknowledgments
+-   Sismo Authentication: Ensures genuine participation with ZK-based authentication.
+-   Transparent Voting: Real-time vote tallying for democratic and transparent decision-making.
+-   Direct Funds Transfer: Utilizes XRPL for swift and secure fund transfer to the chosen causes.
 
-Big shoutout to our team and every helping hand at the ETHWaterloo hackathon. The sponsors and blockchain community deserve a special mention for their unyielding support and inspiration.
+🧰 Technologies
+---------------
 
-# 📜 License
+CharityDAO is built using a robust stack:
 
-Bound by the principles of MIT License - dig deeper into the [MIT license details](https://github.com/selcukemiravci/CharityDAO/blob/main/LICENSE).
+-   ReactJS
+-   Next.js
+-   TypeScript
+-   JavaScript
+-   XRPL (XRP Ledger)
+-   Sismo Connect
+-   @emotion/styled
+
+✍️ Credits
+----------
+
+Originally prototyped at ETHWaterloo, CharityDAO has evolved under [Emir Avci's](https://github.com/selcukemiravci) vision, merging decentralized voting with philanthropy.
+
+📜 License
+----------
+
+This project is open-sourced under the [MIT license](https://github.com/selcukemiravci/CharityDAO/blob/main/LICENSE).
