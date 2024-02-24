@@ -1,7 +1,7 @@
 🌍 CharityDAO
 =============
 
-Welcome to [CharityDAO](https://charity-dao-1.vercel.app/), where blockchain technology meets philanthropy to create a transparent and impactful platform for charitable giving. By leveraging the XRPL (XRP Ledger) and ZK-proof technology via Sismo Connect, CharityDAO ensures each contribution is meaningful, transparent, and directly supports global causes.
+Welcome to [CharityDAO](https://charity-dao-1.vercel.app/), where blockchain technology meets philanthropy to create a transparent and impactful platform for charitable donations. By leveraging the XRPL (XRP Ledger) and ZK-proof technology via Sismo Connect, CharityDAO ensures each contribution is meaningful, transparent, and directly supports countries in global crises situations.
 
 🔐 Getting Started
 ------------------
@@ -20,9 +20,10 @@ To get started with CharityDAO, follow these steps:
 
 3.  Install dependencies:
 
-    `npm install`
+    `npm install xrpl @mui/material @emotion/react @emotion/styled @sismo-core/sismo-connect-react`
 
-4.  Start the application:
+
+5.  Start the application:
 
     `npm start`
 
@@ -46,9 +47,10 @@ To get started with CharityDAO, follow these steps:
 🚀 Key Features
 ---------------
 
--   Sismo Authentication: Ensures genuine participation with ZK-based authentication.
--   Transparent Voting: Real-time vote tallying for democratic and transparent decision-making.
--   Direct Funds Transfer: Utilizes XRPL for swift and secure fund transfer to the chosen causes.
+-   Sismo Authentication: Ensures genuine participation with ZK-based & wallet authentication.
+-   Transparent Voting: Real-time donation with a tentative voting receipts, TXid and more for transparency.
+-   Fast Donation Transfer: Utilizes XRPL for fast and scalable donation transfer to the chosen countries.
+-   Wallet Balance: Real-time account balance update with the wallet connection.
 
 🧰 Technologies
 ---------------
@@ -61,7 +63,6 @@ CharityDAO is built using a robust stack:
 -   JavaScript
 -   XRPL (XRP Ledger)
 -   Sismo Connect
--   @emotion/styled
 
 ✍️ Credits
 ----------
