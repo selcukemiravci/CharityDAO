@@ -12,11 +12,11 @@ To get started with CharityDAO, follow these steps:
 
 1.  Clone the repository:
 
-    `git clone https://github.com/your-username/charity-dao.git`
+    `git clone https://github.com/selcukemiravci/CharityDAO.git`
 
 2.  Navigate to the project directory:
 
-    `cd charity-dao`
+    `cd CharityDAO`
 
 3.  Install dependencies:
 
@@ -63,6 +63,11 @@ CharityDAO is built using a robust stack:
 -   JavaScript
 -   XRPL (XRP Ledger)
 -   Sismo Connect
+
+👀 Future Implementations
+---------------
+
+In the forthcoming iterations of CharityDAO, to fulfill its vision, donors will have the opportunity to select the charities within each country to which the funds will be allocated. This selection process will also take place within a DAO (Decentralized Autonomous Organization) structure, where the weight of each user's vote is determined by the amount they have donated.
 
 ✍️ Credits
 ----------
