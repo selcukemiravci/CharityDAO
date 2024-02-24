@@ -50,7 +50,6 @@ const handleSeedChange = (e) => {
   setUserSeed(e.target.value);
 };
 
-  const walletSeed = process.env.REACT_APP_XRP_WALLET_SEED;
   const [votesPerCountry, setVotesPerCountry] = useState({
     Singapore: 0,
     Canada: 0,
@@ -68,7 +67,6 @@ const handleSeedChange = (e) => {
   
     useEffect(() => {
     const client = new Client("wss://s.altnet.rippletest.net:51233");
-    const wallet = Wallet.fromSeed(walletSeed); // Replace with your actual seed
   
     // Connect to the client
     const connectClient = async () => {
