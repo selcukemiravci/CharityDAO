@@ -12,25 +12,17 @@ To get started with CharityDAO, follow these steps:
 
 1.  Clone the repository:
 
-    bashCopy code
-
     `git clone https://github.com/your-username/charity-dao.git`
 
 2.  Navigate to the project directory:
-
-    bashCopy code
 
     `cd charity-dao`
 
 3.  Install dependencies:
 
-    bashCopy code
-
     `npm install`
 
 4.  Start the application:
-
-    bashCopy code
 
     `npm start`
 
