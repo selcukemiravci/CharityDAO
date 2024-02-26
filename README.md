@@ -67,7 +67,12 @@ CharityDAO is built using a robust stack:
 👀 Future Implementations
 ---------------
 
-In the forthcoming iterations of CharityDAO, to fulfill its vision, donors will have the opportunity to select the charities within each country to which the funds will be allocated. This selection process will also take place within a DAO (Decentralized Autonomous Organization) structure, where the weight of each user's vote is determined by the amount they have donated.
+In the future iterations of CharityDAO, to fulfill its vision, donors will have the opportunity to select the charities within each country to which the funds will be allocated. This selection process will also take place within a DAO (Decentralized Autonomous Organization) structure, where the weight of each user's vote is determined by the amount they have donated. This will ensure that the funds are allocated to the charities that the donors believe will have the most impact. This functionality can be implemented via creating a data-vault, through [Sismo Connect](https://docs.sismo.io/sismo-docs/data-groups/tutorials/create-your-group-generator#creation-of-the-group-generator). Each group can have a voting power, based on their donations and the DAO can be used to vote on the charities.
+
+Example:
+- "1" --> get 1 voting power
+- "2" --> get 50 voting power
+- "3" --> get 500 voting power
 
 ✍️ Credits
 ----------

@@ -21,7 +21,6 @@ const Header = () => {
       setIsUserVerified(true); // Update the verification status
   }
   };
-
   return (
     <header className="header">
       <div className="header-title">
@@ -34,7 +33,11 @@ const Header = () => {
           {!isUserVerified && !verifying && (
             <SismoConnectButton
               config={config}
-              auth={{ authType: AuthType.VAULT }}
+              auths={[
+                {authType: AuthType.VAULT},
+                {authType: AuthType.GITHUB},
+            ]}
+              signature={{message: "Authenticating that you are an unique human being to access the CharityDAO with zero-knowledge proofs to interact with the app."}}
               onResponse={handleSismoResponse}
               onLoading={(isLoading) => setVerifying(isLoading)}
               text="Connect Wallet"

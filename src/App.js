@@ -278,7 +278,7 @@ const progressPercentage = (capital / maxBalance) * 100;
           <p>
           Welcome to CharityDAO, a decentralized charity platform. Leveraging blockchain, we offer a secure and transparent way for you to contribute to global charitable efforts. 🏩🫂 </p>
 
-          <p>By verifying your humanity with Sismo Connect's ZK proof, and connecting your XRPL testnet wallet, you unlock the ability to directly donate funds cross-boarder to countries to help in global crises situations. You can choose how much to donate for each country based on your budget which will be also viewed in the application 📈</p>
+          <p>By verifying your humanity with Sismo Connect's ZK proof, and connecting your XRPL testnet wallet, you unlock the ability to directly donate funds cross-boarder to countries to help in global crises situations. You can choose how much to donate for each country based on your budget which will be also viewed in the application. 📈</p>
 
           <p> But that's not all - as you decide on your preferred countries and specify your donation amounts, you'll receive a real-time tentative voting receipt. This allows you to review your pledges before finalizing them. Upon confirmation, each transaction is executed on the XRPL blockchain, providing you with a transaction ID for transparent tracking on <a href="https://testnet.xrpl.org/">https://testnet.xrpl.org/</a>  as well as a update on your wallet funds. 👨‍💻💰</p>
 
