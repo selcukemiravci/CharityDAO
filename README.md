@@ -1,7 +1,12 @@
 🌍 CharityDAO
 =============
 
-Welcome to [CharityDAO](https://charity-dao-1.vercel.app/), where blockchain technology meets philanthropy to create a transparent and impactful platform for charitable donations. By leveraging the XRPL (XRP Ledger) and ZK-proof technology via Sismo Connect, CharityDAO ensures each contribution is meaningful, transparent, and directly supports countries in global crises situations.
+Welcome to [CharityDAO](https://charity-dao-1.vercel.app/), where blockchain technology meets philanthropy to create a transparent and impactful platform for charitable donations. By leveraging the XRPL (XRP Ledger) and ZK-proof technology via Sismo Connect, CharityDAO ensures each contribution is meaningful, transparent, and directly supports countries in global crises situations. 
+
+🎥 Video Walkthrough
+------------------
+
+Watch it on [Youtube](https://www.youtube.com/watch?v=5NlxoAPjttU)
 
 🔐 Getting Started
 ------------------
